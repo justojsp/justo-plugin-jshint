@@ -1,6 +1,6 @@
 {
   "name": "justo-plugin-jshint",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Simple task to run jshint.",
   "homepage": "http://www.justojs.org",
   "author": {
@@ -35,15 +35,12 @@
   "dependencies": {},
   "peerDependencies": {},
   "devDependencies": {
+    "justo": "*",
+    "justo-fs": "*",
     "justo-assert": "*",
-    "mocha": "*",
-    "grunt": "^0.4.5",
-    "grunt-babel": "^5",
-    "grunt-contrib-clean": "*",
-    "grunt-contrib-copy": "*",
-    "grunt-contrib-jshint": "*",
-    "grunt-travis-lint": "*",
-    "grunt-mocha-test": "*"
+    "justo-plugin-babel": "*",
+    "justo-plugin-clean": "*",
+    "justo-plugin-copy": "*"
   },
   "preferGlobal": false,
   "main": "lib/index.js",
@@ -52,7 +49,7 @@
     "test"
   ],
   "scripts": {
-    "test": "grunt test"
+    "test": "justo test"
   },
   "license": "MIT"
 }

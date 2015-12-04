@@ -8,7 +8,7 @@ node_js:
 os:
   - linux
 sudo: false
-before_install: npm install -g grunt-cli jshint
+before_install: npm install -g justo-cli jshint
 install: npm install
 #before_script:
 #script:
