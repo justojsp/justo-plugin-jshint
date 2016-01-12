@@ -31,4 +31,12 @@ suite("#jshint()", function() {
   test("jshint({files}) - unknown file", function() {
     jshint([{files: [path.join(DATA_DIR, "unknown.js")]}]).must.be.eq(0);
   });
+
+  test("jshint({src : string})", function() {
+    jshint([{src: path.join(DATA_DIR, "valid.js")}]).must.be.eq(0);
+  });
+
+  test("jshint({src : string[]})", function() {
+    jshint([{src: [path.join(DATA_DIR, "valid.js"), path.join(DATA_DIR, "valid2.js")]}]).must.be.eq(0);
+  });
 })();

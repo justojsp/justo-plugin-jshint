@@ -26,12 +26,13 @@ To run `jshint`, the task must be called as follows:
 
 ```
 jshint(opts, ...files) : number
-jshint(opts, {files, output}) : number
+jshint(opts, config) : number
 ```
 
-The options are:
+The `config` object can have the following properties:
 
 - `files` (string[]). The files to check. Default: ["."].
+- `src` (string or string[]). Alias of `files`.
 - `output` (boolean). Show the standard output: `true`, yep; `false`, nope. Default: `true`.
 
 The task returns the exit code.
