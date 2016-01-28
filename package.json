@@ -1,6 +1,6 @@
 {
   "name": "justo-plugin-jshint",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Simple task to run jshint.",
   "homepage": "http://www.justojs.org",
   "author": {
@@ -43,7 +43,7 @@
     "justo-plugin-npm": "*"
   },
   "preferGlobal": false,
-  "main": "lib/index.js",
+  "main": "index.js",
   "files": [
     "lib",
     "test"

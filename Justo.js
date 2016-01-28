@@ -1,5 +1,5 @@
 //imports
-const register = require("justo").register;
+const catalog = require("justo").catalog;
 const simple = require("justo").simple;
 const fs = require("justo-fs");
 const babel = require("justo-plugin-babel");
@@ -8,7 +8,7 @@ const copy = require("justo-plugin-fs").copy;
 const publish = require("justo-plugin-npm").publish;
 
 //works
-register({name: "build", desc: "Build the package."}, function() {
+catalog.workflow({name: "build", desc: "Build the package."}, function() {
   clean("Clean build directory", {
     dirs: ["build/es5"]
   });
@@ -16,14 +16,14 @@ register({name: "build", desc: "Build the package."}, function() {
   simple("Best practices", function() {
     var jshint;
 
-    if (fs.exists("./dist/es5/nodejs/justo-plugin-jshint")) jshint = require("./dist/es5/nodejs/justo-plugin-jshint/lib/jshint");
-    else jshint = require("./build/es5/lib/jshint");
+    if (fs.exists("./dist/es5/nodejs/justo-plugin-jshint")) jshint = require("./dist/es5/nodejs/justo-plugin-jshint/lib/op");
+    else jshint = require("./build/es5/lib/op");
 
     jshint([{
       output: true,
       files: [
-        "lib/jshint.js",
-        "lib/index.js"
+        "index.js",
+        "lib/op.js",
       ]
     }]);
   })();
@@ -32,8 +32,8 @@ register({name: "build", desc: "Build the package."}, function() {
     comments: false,
     retainLines: true,
     files: {
-      "build/es5/lib/index.js": "lib/index.js",
-      "build/es5/lib/jshint.js": "lib/jshint.js"
+      "build/es5/index.js": "index.js",
+      "build/es5/lib/op.js": "lib/op.js"
     }
   });
 
@@ -54,16 +54,16 @@ register({name: "build", desc: "Build the package."}, function() {
   );
 });
 
-register({name: "test", desc: "Unit test."}, {
+catalog.macro({name: "test", desc: "Unit test."}, {
   require: "justo-assert",
   src: "test/unit/lib/"
 });
 
-register({name: "publish", desc: "NPM publish."}, function() {
+catalog.workflow({name: "publish", desc: "NPM publish."}, function() {
   publish("Publish in NPM", {
     who: "justojs",
     src: "dist/es5/nodejs/justo-plugin-jshint"
   });
 });
 
-register("default", ["build", "test"]);
+catalog.macro({name: "default", desc: "Default task."}, ["build", "test"]);

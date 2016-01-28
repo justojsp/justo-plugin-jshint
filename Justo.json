@@ -1,6 +1,7 @@
 {
   "runner": {
     "main": "Justo.js",
+    "onError": "continue",
     "logger": {
       "minLevel": "info",
       "maxLevel": "fatal"
