@@ -44,6 +44,10 @@ catalog.workflow({name: "build", desc: "Build the package."}, function() {
   copy(
     "Create package",
     {
+      src: "build/es5/index.js",
+      dst: "dist/es5/nodejs/justo-plugin-jshint/"
+    },
+    {
       src: "build/es5/lib/",
       dst: "dist/es5/nodejs/justo-plugin-jshint/lib"
     },

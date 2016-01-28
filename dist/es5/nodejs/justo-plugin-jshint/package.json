@@ -1,6 +1,6 @@
 {
   "name": "justo-plugin-jshint",
-  "version": "0.1.5",
+  "version": "0.1.7",
   "description": "Simple task to run jshint.",
   "homepage": "http://www.justojs.org",
   "author": {
