@@ -60,7 +60,7 @@ catalog.workflow({name: "build", desc: "Build the package."}, function() {
 
 catalog.macro({name: "test", desc: "Unit test."}, {
   require: "justo-assert",
-  src: "test/unit/lib/"
+  src: ["test/unit/index.js", "test/unit/lib/"]
 });
 
 catalog.workflow({name: "publish", desc: "NPM publish."}, function() {
