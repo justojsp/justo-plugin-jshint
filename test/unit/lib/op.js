@@ -2,7 +2,7 @@
 const path = require("path");
 const suite = require("justo").suite;
 const test = require("justo").test;
-const jshint = require("../../../dist/es5/nodejs/justo-plugin-jshint/lib/op");
+const jshint = require("../../../dist/es5/nodejs/justo-plugin-jshint/lib/op").default;
 
 //suite
 suite("#jshint()", function() {

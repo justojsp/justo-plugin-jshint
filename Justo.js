@@ -6,6 +6,7 @@ const babel = require("justo-plugin-babel");
 const clean = require("justo-plugin-fs").clean;
 const copy = require("justo-plugin-fs").copy;
 const publish = require("justo-plugin-npm").publish;
+const cli = require("justo-plugin-cli");
 
 //works
 catalog.workflow({name: "build", desc: "Build the package."}, function() {
@@ -13,28 +14,20 @@ catalog.workflow({name: "build", desc: "Build the package."}, function() {
     dirs: ["build/es5"]
   });
 
-  simple("Best practices", function() {
-    var jshint;
-
-    if (fs.exists("./dist/es5/nodejs/justo-plugin-jshint")) jshint = require("./dist/es5/nodejs/justo-plugin-jshint/lib/op");
-    else jshint = require("./build/es5/lib/op");
-
-    jshint([{
-      output: true,
-      files: [
-        "index.js",
-        "lib/op.js",
-      ]
-    }]);
-  })();
+  cli("Best practices", {
+    output: true,
+    cmd: "jshint.cmd",
+    args: ["index.js", "lib/op.js"]
+  });
 
   babel("Transpile", {
     comments: false,
     retainLines: true,
-    files: {
-      "build/es5/index.js": "index.js",
-      "build/es5/lib/op.js": "lib/op.js"
-    }
+    preset: "es2015",
+    files: [
+      {src: "index.js", dst: "build/es5/"},
+      {src: "lib/", dst: "build/es5/lib/"}
+    ]
   });
 
   clean("Clean dist directory", {

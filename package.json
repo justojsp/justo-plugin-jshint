@@ -1,17 +1,17 @@
 {
   "name": "justo-plugin-jshint",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Simple task to run jshint.",
   "homepage": "http://www.justojs.org",
   "author": {
-    "name": "The Justo.js Development Group",
-    "email": "justojs.org@outlook.com",
+    "name": "Justo Labs",
+    "email": "justojs@justolabs.com",
     "url": "http://www.justojs.org"
   },
   "contributors": [
     {
       "name": "Raúl G. González",
-      "email": "raulggonzalezsw@outlook.com",
+      "email": "raulggonzalez@justojs.org",
       "url": ""
     }
   ],
@@ -22,7 +22,7 @@
   ],
   "bugs": {
     "url": "https://github.com/justojsp/justo-plugin-jshint/issues",
-    "email": "justojs.org@outlook.com"
+    "email": "issues@justojs.org"
   },
   "repository": {
     "type": "git",
@@ -39,6 +39,7 @@
     "justo-fs": "*",
     "justo-assert": "*",
     "justo-plugin-babel": "*",
+    "justo-plugin-cli": "*",
     "justo-plugin-fs": "*",
     "justo-plugin-npm": "*"
   },
@@ -49,6 +50,5 @@
   ],
   "scripts": {
     "test": "justo test"
-  },
-  "license": "MIT"
+  }
 }
